@@ -1,16 +1,10 @@
 # mood_journal
 
-A new Flutter project.
+Project 1 for Mobile App Development Summer 2024. 
+The application is a mood journal that allows the user to log their emotions, journal their feelings, and add photos to their entries.
 
-## Getting Started
+##Updates
+###6/26/24
+- Login, Signup, and Calendar pages created (Trinity Gordon)
+- TODO: setup database, connect login/signup textfields to database, link entry pages to calendar dates
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
