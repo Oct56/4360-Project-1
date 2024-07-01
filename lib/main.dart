@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mood_journal/login.dart';
+import 'package:mood_journal/notes_database.dart';
+import 'database_helper.dart';
 
+final dbHelper = DatabaseHelper();
+final notesDB = NotesDatabase();
 //landing splash screen
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await notesDB;
+  await dbHelper.init();
   runApp(const MyApp());
 }
 
