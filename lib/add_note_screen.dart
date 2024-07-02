@@ -90,7 +90,7 @@ void initState(){
     final note = Note(
       title: _title.text,
       description: _deescription.text,
-      mood: _mood.text
+      mood: _mood.text 
       //createdAt: DateTime.now()
     );
     await NotesDatabase.insert(note: note);

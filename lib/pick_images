@@ -8,9 +8,7 @@ class PickImage extends StatefulWidget {
   @override
   State<PickImage> createState() => PIState();
 
-  static getPic() {
-    return pic;
-  }
+  
 }
 
 class PIState extends State<PickImage> {
