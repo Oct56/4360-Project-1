@@ -20,7 +20,12 @@ class Signup extends StatelessWidget {
           child: Column(
             children: [
               //logo
-
+              Container(
+                padding: EdgeInsets.all(15),
+                height: 200,
+                width: 200,
+                child: Image.network('https://64.media.tumblr.com/a50d0bfbda48b8444c71f2407920ac85/a1e614e28f025fc6-b8/s1280x1920/3aa6ed7c75dae3d72eb64720027264509b61995b.pnj'),
+              ),
               //message
               Text('Discover the joys of your inner world!'),
 

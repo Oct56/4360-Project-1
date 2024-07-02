@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mood_journal/calendar.dart';
 import 'package:mood_journal/note.dart';
 import 'package:mood_journal/notes_database.dart';
+import 'package:mood_journal/pick_images';
 
 
 class AddNoteScreen extends StatefulWidget {
@@ -10,7 +13,7 @@ class AddNoteScreen extends StatefulWidget {
   @override
   State<AddNoteScreen> createState() => _AddNoteScreenState();
 }
-  
+PickImage image = PickImage();  
 class _AddNoteScreenState extends State<AddNoteScreen> {
 final _title = TextEditingController();
 final _deescription = TextEditingController();
@@ -24,11 +27,11 @@ void initState(){
   }
 }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('type note'),
         actions: [
           widget.note != null? IconButton(onPressed: () {
             showDialog(context: context, builder: (context) => AlertDialog(
@@ -44,6 +47,12 @@ void initState(){
               ],
             ));
           }, icon: const Icon(Icons.delete)): const SizedBox(),
+          IconButton(onPressed: () {
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PickImage()),
+                  );
+          }, icon: const Icon(Icons.photo)),
           IconButton(onPressed: () {
             widget.note == null? _insertNote(): _updateNote();
           }, icon: const Icon(Icons.done)),
@@ -70,9 +79,9 @@ void initState(){
             controller: _deescription,
             decoration:  InputDecoration(hintText: 'Start typing here',
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-            maxLines: 50,
+            maxLines: 30,
           )
-          )
+          ),
         ],
       ),)
     );
@@ -104,3 +113,4 @@ void initState(){
     });
   }
 }
+

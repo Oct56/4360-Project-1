@@ -1,0 +1,98 @@
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+class PickImage extends StatefulWidget {
+  const PickImage({super.key});
+  @override
+  State<PickImage> createState() => PIState();
+
+  static getPic() {
+    return pic;
+  }
+}
+
+class PIState extends State<PickImage> {
+   Uint8List? pic;
+   File? chosenPic;
+  @override
+    Widget build(BuildContext) {
+      return Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Stack(
+            children: [
+              CircleAvatar(
+                radius: 100,
+                backgroundImage: pic != null
+                  ? MemoryImage(pic!)
+                  : const NetworkImage("https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"),
+              ),
+              Positioned(
+                top: 0,
+                left: 130,
+                child: IconButton(
+                  onPressed: () {
+                  showImageOption(context);
+                }, 
+                icon: const Icon(Icons.add_a_photo),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+    void showImageOption(BuildContext context) {
+      showModalBottomSheet(
+        backgroundColor: Colors.blue,
+        context: context, 
+        builder: (BuildContext builder) {
+        return Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: SizedBox(
+           width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height/4.5,
+            child: Row(
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: (){
+                      pickGalleryImage();
+                    },
+                    child: const SizedBox(
+                      child: Column(
+                        children: [
+                          Icon(Icons.image),
+                          Text("Gallery")
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      });
+    }
+    Future<void> pickGalleryImage() async{
+      final returnPic = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if(returnPic == null) return;
+      setState(() {
+        chosenPic = File(returnPic.path);
+        pic = File(returnPic.path).readAsBytesSync();
+      });
+      Navigator.of(context).pop();
+    }
+    Future<void> pickCameraImage() async{
+      final returnPic = await ImagePicker().pickImage(source: ImageSource.camera);
+      if(returnPic == null)return;
+      setState(() {
+        chosenPic = File(returnPic.path);
+        pic = File(returnPic.path).readAsBytesSync();
+      });
+      Navigator.of(context).pop();
+   }
+}
