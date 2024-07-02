@@ -80,14 +80,14 @@ class Signup extends StatelessWidget {
                   'Already have an account? Log in here.', //TODO: Add hyperlink to signup
                 ),
               ),
-              ElevatedButton(
+              /*ElevatedButton(
                 onPressed: () async {
                   await dbHelper.init();
                   await _queryAll();
                 },
                 //submission button, replace null with
                 child: Text('Query'),
-              ),
+              ),*/
             ],
           ),
         ),

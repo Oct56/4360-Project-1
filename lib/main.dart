@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mood_journal/login.dart';
 import 'package:mood_journal/notes_database.dart';
+import 'package:mood_journal/theme.dart';
 import 'database_helper.dart';
 
 final dbHelper = DatabaseHelper();
@@ -21,10 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: myTheme,
       home: const Login(),
     );
   }

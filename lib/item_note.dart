@@ -29,7 +29,7 @@ class ItemNote extends StatelessWidget{
             child: 
             Column(
               children: [
-                Text('hi',
+                Text(note.title,
                 style: TextStyle(color: Colors.white),),
                 
             ],
@@ -41,7 +41,7 @@ class ItemNote extends StatelessWidget{
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(note.title,
+              Text(note.description,
               style: Theme.of(context).textTheme.titleMedium,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,),

@@ -9,14 +9,16 @@ class Note{
     this.id,
     required this.title,
     required this.description,
-    required this.createdAt
+    //required this.mood
+    //required this.createdAt
   });
 
   Map<String, dynamic> toMap(){
     return{
       'title':title,
       'description':description,
-      'createdAt': createdAt.toString()
+      //'mood': mood
+      ///'createdAt': createdAt.toString()
     };
   }
 }

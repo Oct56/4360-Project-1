@@ -36,7 +36,7 @@ void initState(){
                 TextButton(onPressed: () {
                   Navigator.pop(context);
                   _deleteNote();
-                }, child: const Text('No')),
+                }, child: const Text('Yes')),
                 TextButton(onPressed: () {
                   Navigator.pop(context);
                 }, child: const Text('No')),
@@ -74,7 +74,7 @@ void initState(){
     final note = Note(
       title: _title.text,
       description: _deescription.text,
-      createdAt: DateTime.now()
+      //createdAt: DateTime.now()
     );
     await NotesDatabase.insert(note: note);
   }
@@ -84,7 +84,7 @@ void initState(){
       id: widget.note!.id!,
       title: _title.text,
       description: _deescription.text,
-      createdAt: widget.note!.createdAt
+      ///createdAt: widget.note!.createdAt
     );
     await NotesDatabase.update(note: note);
   }

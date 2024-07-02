@@ -48,11 +48,11 @@ final ThemeData myTheme = ThemeData(
   ),
   
   // Define the button themes.
-  buttonTheme: ButtonThemeData(
-    buttonColor: Colors.blue,
-    textTheme: ButtonTextTheme.primary,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+       backgroundColor: WidgetStateProperty.all<Color>(
+              Color.fromARGB(255, 30, 78, 231), // Background color when enabled
+            ),
     ),
   ),
   
