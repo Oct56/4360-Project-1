@@ -14,6 +14,7 @@ class AddNoteScreen extends StatefulWidget {
 class _AddNoteScreenState extends State<AddNoteScreen> {
 final _title = TextEditingController();
 final _deescription = TextEditingController();
+final _mood = TextEditingController();
 
 @override
 void initState(){
@@ -53,7 +54,13 @@ void initState(){
         children: [
           TextField(
             controller: _title,
-            decoration:  InputDecoration(hintText: 'title',
+            decoration:  InputDecoration(hintText: 'Title',
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+          ),
+          const SizedBox(height: 15,),
+          TextField(
+            controller: _mood,
+            decoration:  InputDecoration(hintText: 'Mood',
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
           ),
           const SizedBox(height: 15,),
@@ -61,7 +68,7 @@ void initState(){
             child:
           TextField(
             controller: _deescription,
-            decoration:  InputDecoration(hintText: 'start typing here',
+            decoration:  InputDecoration(hintText: 'Start typing here',
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
             maxLines: 50,
           )
@@ -74,6 +81,7 @@ void initState(){
     final note = Note(
       title: _title.text,
       description: _deescription.text,
+      mood: _mood.text
       //createdAt: DateTime.now()
     );
     await NotesDatabase.insert(note: note);
@@ -84,6 +92,7 @@ void initState(){
       id: widget.note!.id!,
       title: _title.text,
       description: _deescription.text,
+      mood: _mood.text
       ///createdAt: widget.note!.createdAt
     );
     await NotesDatabase.update(note: note);

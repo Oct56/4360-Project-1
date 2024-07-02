@@ -5,6 +5,17 @@ import 'package:mood_journal/note.dart';
 
 final calendar = Calendar();
 
+MaterialColor colorpicker(Note note){
+  switch(note.mood){
+                case 'happy'|| 'Happy':return Colors.yellow;
+                case 'sad'|| 'Sad':return Colors.blueGrey;
+                case 'angry'|| 'Angry':return Colors.red;
+                case 'content'|| 'Content':return Colors.blue;
+                case 'excited'|| 'Excited':return Colors.green;
+                default: return Colors.blue;
+              }
+}
+
 class ItemNote extends StatelessWidget{
   final Note note;
   const ItemNote({super.key, required this.note});
@@ -24,13 +35,13 @@ class ItemNote extends StatelessWidget{
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.blue
+              color: colorpicker(note)
             ),
             child: 
             Column(
               children: [
-                Text(note.title,
-                style: TextStyle(color: Colors.white),),
+                Text(note.mood,
+                style: TextStyle(color: Colors.white),),                
                 
             ],
             ),
@@ -41,7 +52,7 @@ class ItemNote extends StatelessWidget{
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(note.description,
+              Text(note.title,
               style: Theme.of(context).textTheme.titleMedium,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,),

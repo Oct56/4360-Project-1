@@ -85,7 +85,7 @@ class _CalendarState extends State<Calendar> {
                 }, //submission button, replace null with
                 child: Text('New Note'),
               ),
-              /*Row(
+              Row(
                 children: [
               ElevatedButton(
                 onPressed: () async {
@@ -102,7 +102,7 @@ class _CalendarState extends State<Calendar> {
                 },
                 child: Text('Delete All Notes'),
               )]
-              ),*/
+              ),
               Expanded(
                   child: FutureBuilder<List<Note>>(
                       future: NotesDatabase.getNotes(),

@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 class NotesDatabase{
   static Future<Database> _database() async{
     final database = openDatabase(
-      join(await getDatabasesPath(), 'notes_database.db'),
+      join(await getDatabasesPath(), 'notes_database2.db'),
       onCreate: (db, version){
         return db.execute(
-          'CREATE TABLE notes(id INTEGER PRIMARY KEY, title TEXT, description TEXT, createdAT TEXT)',
+          'CREATE TABLE notes(id INTEGER PRIMARY KEY, title TEXT, description TEXT, mood TEXT)',
         );
       },
       version: 1,
@@ -41,6 +41,7 @@ class NotesDatabase{
           id: maps[i]['id'] as int,
           title: maps[i]['title'] as String,
           description: maps[i]['description'] as String,
+          mood: maps[i]['mood'] as String
           //createdAt: DateTime.parse(maps[i]['createdAt']),
         );
         
