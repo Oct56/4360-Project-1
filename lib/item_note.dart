@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mood_journal/add_note_screen.dart';
 import 'package:mood_journal/calendar.dart';
 import 'package:mood_journal/note.dart';
+import 'dart:io'; // added by Ahmad
 
 final calendar = Calendar();
 
@@ -63,6 +64,14 @@ class ItemNote extends StatelessWidget{
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               ),
+              if (note.imagePath != null) // added by Ahmad
+              Container(
+                height: 200,
+                width: 200,
+                child: Image.file(File(note.imagePath!), fit: BoxFit.cover,), // added by Ahmad,
+              ),
+              Divider(),
+                
           ],))
       ],
       ),
