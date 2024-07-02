@@ -41,3 +41,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+project1/android/gradlew
+project1/android/gradlew.bat
+project1/android/local.properties
+project1/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+project1/android/gradle/wrapper/gradle-wrapper.jar
+project1/ios/Flutter/flutter_export_environment.sh
+project1/ios/Flutter/Generated.xcconfig
+project1/ios/Runner/GeneratedPluginRegistrant.h
+project1/ios/Runner/GeneratedPluginRegistrant.m
+project1/macos/Flutter/ephemeral/flutter_export_environment.sh
+project1/macos/Flutter/ephemeral/Flutter-Generated.xcconfig
+lib.zip
